@@ -98,12 +98,18 @@ def artist_fetch(sp, image, artist, artist_name):
         else:
             genres += f"{genre}, "
 
-    artist_array.append(colors.BOLD + colors.BLUE + "Artist: " + colors.UNDERLINE + artist_name)
-    artist_array.append(colors.BOLD + colors.GREEN + "1: " + colors.UNDERLINE + top_songs[0])
-    artist_array.append(colors.BOLD + colors.GREEN + "2: " + colors.UNDERLINE + top_songs[1])
-    artist_array.append(colors.BOLD + colors.GREEN + "3: " + colors.UNDERLINE + top_songs[2])
-    artist_array.append(colors.BOLD + colors.LIGHTGREEN + "Latest Album: " + colors.UNDERLINE + latest_album)
-    artist_array.append(colors.BOLD + colors.CYAN + "Genre: " + colors.UNDERLINE + genres)
+    artist_array.append(colors.BOLD + colors.BLUE +
+                        "Artist: " + colors.UNDERLINE + artist_name)
+    artist_array.append(colors.BOLD + colors.GREEN +
+                        "1: " + colors.UNDERLINE + top_songs[0])
+    artist_array.append(colors.BOLD + colors.GREEN +
+                        "2: " + colors.UNDERLINE + top_songs[1])
+    artist_array.append(colors.BOLD + colors.GREEN +
+                        "3: " + colors.UNDERLINE + top_songs[2])
+    artist_array.append(colors.BOLD + colors.LIGHTGREEN +
+                        "Latest Album: " + colors.UNDERLINE + latest_album)
+    artist_array.append(colors.BOLD + colors.CYAN +
+                        "Genre: " + colors.UNDERLINE + genres)
 
     i = 0
     num_of_new_lines = 0
@@ -129,10 +135,14 @@ def album_fetch(image, album, artist_name, album_name):
 
     total_tracks = str(get_album_total_tracks(album))
     release_date = get_album_release_date(album)
-    album_information_array.append(colors.BOLD + colors.BLUE + "Artist: " + colors.UNDERLINE + artist_name)
-    album_information_array.append(colors.BOLD + colors.GREEN + "Album: " + colors.UNDERLINE + album_name)
-    album_information_array.append(colors.BOLD + colors.LIGHTGREEN + "Total Tracks: " + colors.UNDERLINE + total_tracks)
-    album_information_array.append(colors.BOLD + colors.CYAN + "Release Date: " + colors.UNDERLINE + release_date)
+    album_information_array.append(
+        colors.BOLD + colors.BLUE + "Artist: " + colors.UNDERLINE + artist_name)
+    album_information_array.append(
+        colors.BOLD + colors.GREEN + "Album: " + colors.UNDERLINE + album_name)
+    album_information_array.append(
+        colors.BOLD + colors.LIGHTGREEN + "Total Tracks: " + colors.UNDERLINE + total_tracks)
+    album_information_array.append(
+        colors.BOLD + colors.CYAN + "Release Date: " + colors.UNDERLINE + release_date)
 
     i = 0
     num_of_new_lines = 0
@@ -163,7 +173,8 @@ def show_artist_info(sp, artist_name):
         image = Image.open(BytesIO(response.content)).convert('RGB')
         converted = climage.convert_pil(image, is_unicode=True, width=24)
 
-        artist_fetch(sp=sp, image=converted, artist=artist, artist_name=artist_name)
+        artist_fetch(sp=sp, image=converted, artist=artist,
+                     artist_name=artist_name)
     except Exception:
         print("Error in argument value")
 
